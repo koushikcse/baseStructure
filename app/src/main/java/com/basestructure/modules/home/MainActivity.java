@@ -1,7 +1,9 @@
-package com.basestructure;
+package com.basestructure.modules.home;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.basestructure.R;
 
 public class MainActivity extends AppCompatActivity {
 
