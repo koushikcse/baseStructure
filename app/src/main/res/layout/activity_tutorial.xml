@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/tutorial_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/login_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/twenty_dp"
+            android:layout_above="@+id/onboarding_layout"
+            android:paddingLeft="@dimen/twenty_dp"
+            android:paddingRight="@dimen/twenty_dp"
+            android:text="@string/login"
+            android:textColor="@color/colorBlack" />
+
+        <LinearLayout
+            android:id="@+id/onboarding_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/twenty_dp"
+            android:gravity="center">
+
+            <View
+                android:id="@+id/first_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/second_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/third_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

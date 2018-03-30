@@ -22,7 +22,7 @@ public class UnauthorizedInterceptor implements Interceptor {
         Request request = chain.request();
         Response response = chain.proceed(request);
         /*if (response.code() == Constants.UNAUTHORIZED_STATUS_CODE) {
-            *//*InitialUserDataStore userDataStore = new InitialUserDataStore(context);
+            *//*UserDataStore userDataStore = new UserDataStore(context);
             userDataStore.deleteUserFromFile();*//*
             context.startActivity(new Intent(context, LoginActivity.class)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));

@@ -11,6 +11,8 @@ public class Constants {
     public static String PRODUCTION_API_URL = "";
     public static String DEVELOPMENT_API_URL = "";
 
+    public static long SPLASH_TIMER = 1500;
+
 
     public static String getAPIURL () {
         if(EASTER_EGG_ENABLE)

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import com.basestructure.dependencyInjection.ApplicationModule;
+import com.basestructure.dependencyInjection.DaggerPresenterComponent;
 import com.basestructure.dependencyInjection.PresenterComponent;
 import com.basestructure.modules.view.presenter.Presenter;
 

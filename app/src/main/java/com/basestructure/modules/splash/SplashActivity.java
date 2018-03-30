@@ -1,5 +1,6 @@
 package com.basestructure.modules.splash;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,6 +10,7 @@ import android.view.WindowManager;
 import com.basestructure.R;
 import com.basestructure.databinding.ActivitySplashBinding;
 import com.basestructure.dependencyInjection.PresenterComponent;
+import com.basestructure.modules.tutorial.TutorialActivity;
 import com.basestructure.modules.view.activity.PresentedActivity;
 
 /**
@@ -41,5 +43,10 @@ public class SplashActivity extends PresentedActivity<SplashPresenter> implement
                 .splashApplicationModule(new SplashApplicationModule(this))
                 .build();
         splashPresenterComponent.inject(presenter);
+    }
+
+    @Override
+    public void gotoTutorialActivity() {
+        startActivity(new Intent(this, TutorialActivity.class));
     }
 }

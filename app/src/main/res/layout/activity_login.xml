@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="100dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/twenty_dp"
+                android:text="Login"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/twenty_sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/email_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/sixteen_dp"
+                android:background="@null"
+                android:hint="Email"
+                android:padding="10dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/sixteen_sp" />
+
+            <EditText
+                android:id="@+id/password_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/sixteen_dp"
+                android:background="@null"
+                android:hint="password"
+                android:padding="10dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/sixteen_sp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Login"
+                android:textAllCaps="false"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/sixteen_sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+</layout>
