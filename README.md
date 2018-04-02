@@ -1,9 +1,23 @@
 # baseStructure
+BaseStructure is an android folder structure for developing android application using Model View Presenter (MVP).
 
-#MVP
+## What is MVP?  
+Model View Presenter (MVP) is the latest and greatest Android architecture pattern that helps you decouple business logic (Model) from view logic (Activity / Fragment) by utilizing an intermediate step called the Presenter.This architecture allows us to break our app into 3 layers - Models, Views and Presenters.
+
 ![MVP Architechture Image](https://github.com/koushikcse/baseStructure/blob/master/data/img/MVP.png)
 
-# License
+### View:
+This layer includes the Activities, Fragments or Android Views that the user view in an app. The general idea of this layer is very simple and there isn’t much to do here except to show the data to the user. There is not any business logic or major coding done in this layer.
+### Presenter:
+This layer is where the business logic is put and the major coding is done. The idea is to have one Presenter per View. But the Presenter can interact with multiple Models to interact with data which are obtained from databases and API calls.
+### Model:
+These are classes which interact with the data which are obtained from databases and API calls. They contain getter and setter methods to interact with data.
+
+## Todo
+Make more understand to ues different features of code sample of this structure.
+
+
+## License
 
 MIT License
 
