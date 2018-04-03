@@ -55,7 +55,10 @@ public class TutorialActivity extends PresentedActivity<TutorialPresenter> imple
         binding.loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TutorialActivity.this, LoginActivity.class));
+                Intent intent = new Intent(TutorialActivity.this, LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+
             }
         });
     }

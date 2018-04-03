@@ -53,6 +53,10 @@ dependencies {
 
     implementation 'com.facebook.android:facebook-android-sdk:4.27.0'
 
+    implementation 'com.aurelhubert:ahbottomnavigation:2.1.0'
+    // Fragment Stack Maintain
+    implementation 'com.ncapdevi:frag-nav:2.4.0'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
