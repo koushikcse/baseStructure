@@ -30,7 +30,7 @@
             android:name=".modules.auth.login.LoginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
-
+<activity android:name=".modules.sideNavOne.SideNavOneActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

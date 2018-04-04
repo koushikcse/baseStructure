@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import com.basestructure.R;
 import com.basestructure.databinding.FragmentHomeBinding;
 import com.basestructure.dependencyInjection.PresenterComponent;
+import com.basestructure.modules.main.MainActivity;
 import com.basestructure.modules.view.fragment.PresentedFragment;
 
 /**
@@ -46,8 +48,28 @@ public class HomeFragment extends PresentedFragment<HomePresenter> implements Ho
         if (args != null) {
             fragCount = args.getInt(ARGS_INSTANCE);
         }
+
+        binding.collapsingToolbar.setTitle("Home");
+        binding.collapsingToolbar.setTitleEnabled(true);
+        ((MainActivity) getActivity()).setSupportActionBar(binding.toolbar);
+        ActionBar actionBar = ((MainActivity) getActivity()).getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeAsUpIndicator(R.drawable.menu);
+            actionBar.setDisplayShowTitleEnabled(false);
+        }
+
+        binding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) getActivity()).openSidePanel();
+            }
+        });
+
+
         return binding.getRoot();
     }
+
 
     @Override
     protected HomePresenter onCreatePresenter() {

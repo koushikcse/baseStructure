@@ -1,10 +1,13 @@
 package com.basestructure.modules.main;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
+import android.view.View;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationAdapter;
@@ -13,6 +16,7 @@ import com.basestructure.databinding.ActivityMainBinding;
 import com.basestructure.dependencyInjection.PresenterComponent;
 import com.basestructure.modules.Tab1.TabOneFragment;
 import com.basestructure.modules.home.HomeFragment;
+import com.basestructure.modules.sideNavOne.SideNavOneActivity;
 import com.basestructure.modules.tab2.TabTwoFragment;
 import com.basestructure.modules.tab3.TabThreeFragment;
 import com.basestructure.modules.tab4.TabFourFragment;
@@ -38,6 +42,7 @@ public class MainActivity extends PresentedActivity<MainPresenter> implements Ba
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
         initBottomNav();
         fragmentHistory = new FragmentHistory();
 
@@ -47,6 +52,13 @@ public class MainActivity extends PresentedActivity<MainPresenter> implements Ba
                 .build();
 
         switchTab(0);
+
+        binding.sideNavOne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SideNavOneActivity.class));
+            }
+        });
 
     }
 
@@ -97,6 +109,13 @@ public class MainActivity extends PresentedActivity<MainPresenter> implements Ba
     private void switchTab(int position) {
         mNavController.switchTab(position);
         isPushFragment = true;
+    }
+
+    public void openSidePanel() {
+        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START))
+            binding.drawerLayout.closeDrawer(GravityCompat.START);
+        else
+            binding.drawerLayout.openDrawer(GravityCompat.START);
     }
 
     @Override
