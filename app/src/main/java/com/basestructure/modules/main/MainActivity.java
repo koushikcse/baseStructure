@@ -57,6 +57,7 @@ public class MainActivity extends PresentedActivity<MainPresenter> implements Ba
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, SideNavOneActivity.class));
+                openSidePanel();
             }
         });
 
@@ -109,6 +110,27 @@ public class MainActivity extends PresentedActivity<MainPresenter> implements Ba
     private void switchTab(int position) {
         mNavController.switchTab(position);
         isPushFragment = true;
+        setBottomNavBackgroundColor(position);
+    }
+
+    private void setBottomNavBackgroundColor(int pos) {
+        switch (pos) {
+            case 0:
+                binding.bottomNav.setDefaultBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
+                break;
+            case 1:
+                binding.bottomNav.setDefaultBackgroundColor(ContextCompat.getColor(this, R.color.colorBlack));
+                break;
+            case 2:
+                binding.bottomNav.setDefaultBackgroundColor(ContextCompat.getColor(this, R.color.colorAccent));
+                break;
+            case 3:
+                binding.bottomNav.setDefaultBackgroundColor(ContextCompat.getColor(this, R.color.colorBlack));
+                break;
+            case 4:
+                binding.bottomNav.setDefaultBackgroundColor(ContextCompat.getColor(this, R.color.colorAccent));
+                break;
+        }
     }
 
     public void openSidePanel() {
@@ -133,14 +155,19 @@ public class MainActivity extends PresentedActivity<MainPresenter> implements Ba
 
         switch (position) {
             case 0:
+                binding.bottomNav.setDefaultBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
                 return HomeFragment.newInstance(0);
             case 1:
+                binding.bottomNav.setDefaultBackgroundColor(ContextCompat.getColor(this, R.color.colorBlack));
                 return TabOneFragment.newInstance(0);
             case 2:
+                binding.bottomNav.setDefaultBackgroundColor(ContextCompat.getColor(this, R.color.colorAccent));
                 return TabTwoFragment.newInstance(0);
             case 3:
+                binding.bottomNav.setDefaultBackgroundColor(ContextCompat.getColor(this, R.color.colorBlack));
                 return TabThreeFragment.newInstance(0);
             case 4:
+                binding.bottomNav.setDefaultBackgroundColor(ContextCompat.getColor(this, R.color.colorAccent));
                 return TabFourFragment.newInstance(0);
         }
         throw new IllegalStateException("Need to send an index that we know");
@@ -154,5 +181,28 @@ public class MainActivity extends PresentedActivity<MainPresenter> implements Ba
     @Override
     public void onFragmentTransaction(Fragment fragment, FragNavController.TransactionType transactionType) {
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (!mNavController.isRootFragment()) {
+            mNavController.popFragment();
+        } else {
+            if (fragmentHistory.isEmpty()) {
+                super.onBackPressed();
+            } else {
+                if (fragmentHistory.getStackSize() > 1) {
+                    int position = fragmentHistory.popPrevious();
+                    isPushFragment = false;
+                    binding.bottomNav.setCurrentItem(position);
+                    switchTab(position);
+                } else {
+                    isPushFragment = false;
+                    binding.bottomNav.setCurrentItem(0);
+                    switchTab(0);
+                    fragmentHistory.emptyStack();
+                }
+            }
+        }
     }
 }

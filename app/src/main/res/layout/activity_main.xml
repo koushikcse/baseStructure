@@ -1,50 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 
-        <android.support.constraint.ConstraintLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:fitsSystemWindows="true">
 
-            <RelativeLayout
+            <com.aurelhubert.ahbottomnavigation.AHBottomNavigation
+                android:id="@+id/bottom_nav"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                 />
 
-                <com.aurelhubert.ahbottomnavigation.AHBottomNavigation
-                    android:id="@+id/bottom_nav"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:background="@color/colorGray"
-                   />
+            <FrameLayout
+                android:id="@+id/fragment_frame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/bottom_nav" />
 
-                <FrameLayout
-                    android:id="@+id/fragment_frame"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@+id/main_toolbar"
-                    android:layout_above="@+id/bottom_nav"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
-
-            </RelativeLayout>
-        </android.support.constraint.ConstraintLayout>
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/side_menu_layout"
             android:layout_width="200dp"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:background="@color/colorGray"
+            android:background="@color/colorWhite"
             android:orientation="vertical"
             android:padding="@dimen/sixteen_dp">
 
@@ -59,7 +47,7 @@
                 android:id="@+id/side_nav_one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/sixteen_dp"
+                android:layout_marginTop="@dimen/forty_dp"
                 android:text="Side nav1"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/sixteen_sp" />
@@ -67,7 +55,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/sixteen_dp"
+                android:layout_marginTop="@dimen/twenty_dp"
                 android:text="Side nav2"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/sixteen_sp" />
@@ -75,7 +63,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/sixteen_dp"
+                android:layout_marginTop="@dimen/twenty_dp"
                 android:text="Side nav3"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/sixteen_sp" />
