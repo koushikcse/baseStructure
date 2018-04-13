@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.TypedValue;
 
+import com.basestructure.socialIntegration.SocialUser;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -84,9 +85,8 @@ public class FacebookIntegration implements FacebookCallback<LoginResult>,
                 e.printStackTrace();
             }
             socialUser.setName(profile.getName());
-            socialUser.setFname(profile.getFirstName());
-            socialUser.setLname(profile.getLastName());
-            socialUser.setSocialImgUri(String.valueOf(
+            socialUser.setName(profile.getFirstName()+" "+profile.getLastName());
+            socialUser.setImageUri(String.valueOf(
                     profile.getProfilePictureUri(imageDimesions, imageDimesions)));
             socialUser.setFacebookId(profile.getId());
             if (facebookListener != null) {
@@ -103,9 +103,7 @@ public class FacebookIntegration implements FacebookCallback<LoginResult>,
                         e.printStackTrace();
                     }
                     socialUser.setName(newProfile.getName());
-                    socialUser.setFname(newProfile.getFirstName());
-                    socialUser.setLname(newProfile.getLastName());
-                    socialUser.setSocialImgUri(String.valueOf(
+                    socialUser.setImageUri(String.valueOf(
                             newProfile.getProfilePictureUri(imageDimesions, imageDimesions)));
                     socialUser.setFacebookId(newProfile.getId());
                     if (facebookListener != null) {

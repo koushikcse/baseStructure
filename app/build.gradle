@@ -53,6 +53,11 @@ dependencies {
 
     implementation 'com.facebook.android:facebook-android-sdk:4.27.0'
 
+    // Include all the Twitter APIs
+    implementation 'com.twitter.sdk.android:twitter:3.1.1'
+    // (Optional) Monetize using mopub
+    implementation 'com.twitter.sdk.android:twitter-mopub:3.1.1'
+
     implementation 'com.aurelhubert:ahbottomnavigation:2.1.0'
     // Fragment Stack Maintain
     implementation 'com.ncapdevi:frag-nav:2.4.0'

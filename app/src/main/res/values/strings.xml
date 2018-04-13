@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">baseStructure</string>
+    <string name="CONSUMER_KEY">qvpLfXJf3b0mXsqzq2YhpKXfc</string>
+    <string name="CONSUMER_SECRET">1uA6t36nVLbqgubKPXKr8WOPbN5XQTk0wmhlPCFgPxUePMyrOV</string>
+
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
     <string name="login">Login</string>
     <string name="home">Home</string>
