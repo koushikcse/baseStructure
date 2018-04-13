@@ -13,14 +13,49 @@ This layer is where the business logic is put and the major coding is done. The 
 ### Model:
 These are classes which interact with the data which are obtained from databases and API calls. They contain getter and setter methods to interact with data.
 
-## Todo
-Make more understand to ues different features of code sample of this structure.
+## Folder Structure
+Folder structure is very importent to develop android application. When there are multiple developers working on a single project then must required a good architecture and standard folder structure, so that every developer can easily understand where need to write which code. This application has the following packages.
+```
+ Package Structure
+ 
+     ./baseStructure
+      ./application
+      ./dataStorage
+      ./dependencyInjection
+      ./pushNotification
+      ./modules
+            ./splash
+            ./auth
+                 ./login
+                 ./signup
+                 ./forgotPassword
+                 ./changePassword
+                 ./model
+            ./common
+                ./model
+                ./adapters
+                ...
+            ./home
+            ...
+      ./network
+      ./shared
+      ./socialLogin
+      ./utils
+      
+```
+Inside **application** folder there is application class and here we'll write appication label functionality. Inside **dataStorage** there are subfolders as *sharedPreference*,*realm* and *filestores*. Here we will write local database related classes and functionality as well. Dependency Injection related classes and functionality are inside **dependencyInjection** folder. Inside **network** folder keep all the network related classes and session or token handling functionality. In **shared** folder keep that classes which will be used from any module and inside **utils** folder keep utility classes. If there are any other features like push notification, social login then create different folders for that feature. Now see the **modules** folder, here we'll create separate folders for each different screens. But see in the folder structure, inside **auth** folder there are *login*,*signup*,*changepassword*,*forgotpassword* and *model* folders. As these features are very common, related to user-authentication and models of these features will be less. So we can keep all models for these modules in a common folder as *model* and API related classes (restservice and restinterface) and fuctionality are also written inside auth folder commonly. And there is one folder **common** where we will keep common models and adapters which will be used from different screens.
+
+## Modules Communication
+How modules communicate and navigate one screen to another screen shows in the following image.
+
+![Modules Communication Image](https://github.com/koushikcse/baseStructure/blob/master/data/img/modulesCommunication.png)
+
 
 
 ## License
 
 MIT License
-
+```
 Copyright (c) 2018 Koushik Mondal
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -40,3 +75,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+```
